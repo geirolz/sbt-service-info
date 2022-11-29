@@ -1,1 +1,1 @@
-# sbt-service-info
+## SBT Service Info

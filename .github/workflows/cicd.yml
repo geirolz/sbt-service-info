@@ -30,7 +30,7 @@ jobs:
         include:
           - scala: 2.12.17
             name: Scala2_12
-            test-tasks: coverage test coverageReport gen-doc
+            test-tasks: coverage test coverageReport
 
     steps:
       - uses: actions/checkout@v3

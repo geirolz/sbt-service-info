@@ -75,8 +75,7 @@ object ServiceInfoPlugin extends AutoPlugin {
       serviceBoundedContext.toBuildInfoKey.mapValue(_.value),
       serviceProcessingPurpose.toBuildInfoKey.mapValue(_.toString),
       serviceTags.toBuildInfoKey.toList.nestedMap(_.value)
-    ),
-
+    )
 //    // tech radar
 //    techRadarDataBuilder := TechRadarDataBuilder.default[IO],
 //    techRadarOutFile := File("techradar.ts"),

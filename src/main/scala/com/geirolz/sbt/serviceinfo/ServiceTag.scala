@@ -20,9 +20,8 @@ sealed trait TagBuilders {
 
   def fromProcessingPurpose(p: ProcessingPurpose): Option[ServiceTag] =
     p match {
-      case ProcessingPurpose.OLAP    => Some(labeled("processing-purpose", "OLAP"))
-      case ProcessingPurpose.OLTP    => Some(labeled("processing-purpose", "OLTP"))
       case ProcessingPurpose.Unknown => None
+      case p                         => Some(labeled("processing-purpose", p.toString))
     }
 
   def fromBoundedContext(ctx: BoundedContext): Option[ServiceTag] = {
@@ -60,9 +59,6 @@ sealed trait TagBuilders {
 }
 
 sealed trait TagInstances { this: TagBuilders =>
-  val microservice: ServiceTag           = tag"microservice"
-  val readModel: ServiceTag              = tag"read-model"
-  val externalServiceGateway: ServiceTag = tag"external-service-gateway"
 
   object Languages {
     val scala: ServiceTag      = tag"Scala"
@@ -78,5 +74,16 @@ sealed trait TagInstances { this: TagBuilders =>
     val rust: ServiceTag       = tag"Rust"
     val dart: ServiceTag       = tag"Dart"
     val go: ServiceTag         = tag"Go"
+  }
+
+  object Service {
+    val microservice: ServiceTag           = tag"microservice"
+    val readModel: ServiceTag              = tag"read-model"
+    val externalServiceGateway: ServiceTag = tag"external-service-gateway"
+    val antiCorruptionLayer: ServiceTag    = tag"anti-corruption-layer"
+    val ACL: ServiceTag                    = tag"ACL"
+    val eventSourced: ServiceTag           = tag"event-sourced"
+    val RCP: ServiceTag                    = tag"RCP"
+    val REST: ServiceTag                   = tag"REST"
   }
 }

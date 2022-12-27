@@ -1,3 +1,7 @@
+lazy val prjName         = "sbt-service-info"
+lazy val prjPackageName  = prjName.replaceAll("[^\\p{Alpha}\\d]+", ".")
+lazy val prjDescription  = "A purely functional XML library"
+lazy val prjOrg          = "com.github.geirolz"
 lazy val prjScalaVersion = "2.12.17"
 
 lazy val root = (project in file("."))
@@ -7,9 +11,23 @@ lazy val root = (project in file("."))
   )
   .settings(commonSettings: _*)
   .settings(
-    name := "sbt-service-info",
-    organization := "com.geirolz.sbt",
-    version := "0.1-SNAPSHOT",
+    inThisBuild(
+      List(
+        organization := prjOrg,
+        homepage := Some(url(s"https://github.com/geirolz/$prjName")),
+        licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
+        developers := List(
+          Developer(
+            "DavidGeirola",
+            "David Geirola",
+            "david.geirola@gmail.com",
+            url("https://github.com/geirolz")
+          )
+        )
+      )
+    )
+  )
+  .settings(
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" => "1.2.8" // set minimum sbt version
@@ -19,6 +37,10 @@ lazy val root = (project in file("."))
   )
 
 lazy val commonSettings: Seq[Setting[_]] = Seq(
+  // project
+  name := prjName,
+  description := prjDescription,
+  organization := prjOrg,
   // scala
   scalaVersion := prjScalaVersion,
   scalacOptions ++= scalacSettings,
@@ -73,6 +95,6 @@ def scalacSettings: Seq[String] =
     //    "-Ywarn-unused:patvars", // Warn if a variable bound in a pattern is unused.
     //    "-Ywarn-unused:privates", // Warn if a private member is unused.
     "-Ywarn-macros:after", // Tells the compiler to make the unused checks after macro expansion
-    "-Xsource:3",
+    "-Xsource:3"
 //    "-P:kind-projector:underscore-placeholders"
   )

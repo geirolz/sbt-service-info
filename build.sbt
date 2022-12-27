@@ -44,6 +44,7 @@ lazy val commonSettings: Seq[Setting[_]] = Seq(
   // scala
   scalaVersion := prjScalaVersion,
   scalacOptions ++= scalacSettings,
+  Keys.versionScheme := Some("early-semver"),
   // dependencies
   resolvers ++= ProjectResolvers.all,
   libraryDependencies ++= ProjectDependencies.common,

@@ -30,7 +30,7 @@ lazy val myProject = (project in file("."))
 
 
 ### N.B.
-In your `build.sbt` file where you already declare yours `buildInfoKeys` mind to use `++=` instead of `:=`.
+In your `build.sbt` file where you declare yours `buildInfoKeys` mind to use `++=` instead of `:=`.
 Otherwise, the keys set by this plugin will be overloaded by yours 
   
 Example

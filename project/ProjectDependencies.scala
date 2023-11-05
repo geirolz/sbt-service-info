@@ -13,7 +13,7 @@ object ProjectDependencies {
 
   private val general =
     Seq(
-      "org.typelevel" %% "cats-core" % catsVersion,
+      "org.typelevel" %% "cats-core" % catsVersion
 //      "org.typelevel" %% "cats-effect" % catsEffectVersion
     )
 

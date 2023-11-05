@@ -2,7 +2,7 @@ lazy val prjName         = "sbt-service-info"
 lazy val prjPackageName  = prjName.replaceAll("[^\\p{Alpha}\\d]+", ".")
 lazy val prjDescription  = "A purely functional XML library"
 lazy val prjOrg          = "com.github.geirolz"
-lazy val prjScalaVersion = "2.12.17"
+lazy val prjScalaVersion = "2.12.18"
 
 lazy val root = (project in file("."))
   .enablePlugins(SbtPlugin)

@@ -48,7 +48,7 @@ lazy val commonSettings: Seq[Setting[_]] = Seq(
   // dependencies
   resolvers ++= ProjectResolvers.all,
   libraryDependencies ++= ProjectDependencies.common,
-  addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.12.0"),
+  addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.13.1"),
   // fmt
   scalafmtOnCompile := true
 )
